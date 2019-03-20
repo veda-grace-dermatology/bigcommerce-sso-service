@@ -1,0 +1,45 @@
+{
+  "name": "bigcommerce-sso-service",
+  "version": "1.0.0",
+  "description": "Lambda script to generate a BigCommerce SSO token for an authenticated user.",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "tslint --config tslint.json './src/**/*.ts' --exclude './node_modules/**'",
+    "lint:fix": "tslint --fix --config tslint.json './src/*.ts' './src/**/*.ts' --exclude './node_modules/**'",
+    "test": "todo",
+    "test:integration:dev": "todo",
+    "test:integration:prod": "todo",
+    "deploy:dev": "serverless deploy --stage dev",
+    "deploy:prod": "serverless deploy --stage prod"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veda-grace-dermatology/bigcommerce-sso-service.git"
+  },
+  "author": "Rob Mullins <rob@bettercommerce.com>",
+  "bugs": {
+    "url": "https://github.com/veda-grace-dermatology/bigcommerce-sso-service/issues"
+  },
+  "homepage": "https://github.com/veda-grace-dermatology/bigcommerce-sso-service#readme",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.19",
+    "@types/node": "^11.9.4",
+    "chance": "^1.0.18",
+    "husky": "^1.3.1",
+    "serverless-cognito-add-custom-attributes": "^0.3.0",
+    "serverless-offline": "^4.4.2",
+    "serverless-plugin-typescript": "^1.1.5",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1"
+  },
+  "dependencies": {
+    "@types/config": "0.0.34",
+    "config": "^3.0.1",
+    "parse-full-name": "^1.2.3"
+  }
+}

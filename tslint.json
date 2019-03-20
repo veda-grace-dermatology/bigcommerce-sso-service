@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "missing-jsdoc": false,
+    "linebreak-style": false,
+    "no-default-export": false,
+    "import-name": false,
+    "export-name": false,
+    "no-relative-imports": false,
+    "no-any": false,
+    "no-submodule-imports": false,
+    "prefer-type-cast": false,
+    "typedef": [true,
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "member-variable-declaration"
+    ],
+    "no-misused-new": false,
+    "variable-name": ["check-format", "allow-pascal-case", "ban-keywords"],
+    "no-backbone-get-set-outside-model": false,
+    "no-suspicious-comment": false,
+    "ordered-imports": false,
+    "max-line-length": {
+      "options": { "limit": 125 },
+      "severity": "warn"
+    }
+  }
+}
