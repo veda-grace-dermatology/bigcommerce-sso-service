@@ -1,0 +1,27 @@
+service: bigcommerce-sso-service
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: us-east-2
+  stage: ${opt:stage, 'dev'}
+
+package:
+  include:
+    - src/**/*
+    - config/**
+
+functions:
+  bigcommerceSSO:
+    handler: src/index.handler
+    name: ${opt:stage}-bigcommerce-sso-service
+    environment:
+      BIGCOMMERCE_STORE_HASH: ${ssm:/vedagrace/${opt:stage}/bigcommerce/store_hash~true}
+      BIGCOMMERCE_CLIENT_ID: ${ssm:/vedagrace/${opt:stage}/bigcommerce/client_id~true}
+      BIGCOMMERCE_CLIENT_SECRET: ${ssm:/vedagrace/${opt:stage}/bigcommerce/client_secret~true}
+      BIGCOMMERCE_ACCESS_TOKEN: ${ssm:/vedagrace/${opt:stage}/bigcommerce/access_token~true}
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-cognito-add-custom-attributes

@@ -39,7 +39,10 @@
   },
   "dependencies": {
     "@types/config": "0.0.34",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/uuid": "^3.4.4",
     "config": "^3.0.1",
-    "parse-full-name": "^1.2.3"
+    "jsonwebtoken": "^8.5.1",
+    "uuid": "^3.3.2"
   }
 }

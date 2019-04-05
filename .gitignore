@@ -4,3 +4,4 @@
 /.build/
 *.txt
 poc.js
+config/debug.json

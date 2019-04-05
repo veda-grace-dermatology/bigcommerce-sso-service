@@ -1,0 +1,8 @@
+{
+  "BigCommerce": {
+    "storeHash": "BIGCOMMERCE_STORE_HASH",
+    "clientId": "BIGCOMMERCE_CLIENT_ID",
+    "clientSecret": "BIGCOMMERCE_CLIENT_SECRET",
+    "accessToken": "BIGCOMMERCE_ACCESS_TOKEN"
+  }
+}

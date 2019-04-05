@@ -1,0 +1,9 @@
+{
+  "BigCommerce": {
+    "storeHash": "Overriden by custom-environment-variables.json",
+    "clientId": "Overriden by custom-environment-variables.json",
+    "clientSecret": "Overriden by custom-environment-variables.json",
+    "accessToken": "Overriden by custom-environment-variables.json",
+    "apiHostname": "https://api.bigcommerce.com"
+  }
+}
