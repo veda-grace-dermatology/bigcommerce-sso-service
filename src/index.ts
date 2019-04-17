@@ -12,7 +12,7 @@ import * as I from './interfaces';
  */
 const handler: Handler = async (event: any, context: Context, callback: Callback): Promise<void> => {
 // const handler: any = async (event: any, context?: Context, callback?: Callback): Promise<void> => {
-  const { email } = event;
+  const { email, page } = event;
   try {
     const customerId = await getCustomerId(email);
     if (!customerId) {
@@ -22,7 +22,7 @@ const handler: Handler = async (event: any, context: Context, callback: Callback
       return callback(null, response);
       // console.log(response);
     }
-    const jwtToken = generateJwtToken(customerId);
+    const jwtToken = generateJwtToken(customerId, page);
     const response = buildLambdaResponse({ jwtToken });
 
     return callback(null, response);
@@ -112,7 +112,7 @@ function makeHttpRequest(options: any, data?: any): Promise<I.HttpResponse> {
 /**
  * Generates a JWT SSO token for a given customer.
  */
-function generateJwtToken(customerId: number): string {
+function generateJwtToken(customerId: number, page: string): string {
   const { clientId, storeHash, clientSecret } = config.get('BigCommerce');
 
   const payload = {
@@ -122,7 +122,7 @@ function generateJwtToken(customerId: number): string {
     operation: 'customer_login',
     store_hash: storeHash,
     customer_id: customerId,
-    redirect_to: '/cart.php?action=buy&sku=p1',
+    redirect_to: `/${page}`,
   };
   const token = jwt.sign(payload, clientSecret);
 
